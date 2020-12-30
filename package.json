@@ -2,9 +2,11 @@
   "name": "walmart-technical-challenge-backend",
   "version": "1.0.0",
   "description": "Walmart Technical Challenge for Fullstack Developer",
-  "main": "scr/index.js",
+  "main": "scr/index.ts",
   "scripts": {
-    "start": "node src/index.js"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/marciobarroso/walmart-technical-challenge-backend/issues"
   },
-  "homepage": "https://github.com/marciobarroso/walmart-technical-challenge-backend#readme"
+  "homepage": "https://github.com/marciobarroso/walmart-technical-challenge-backend#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.17",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
 }

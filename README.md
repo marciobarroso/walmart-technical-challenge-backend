@@ -6,7 +6,7 @@
 
 I choose nodejs because of the popularity of this javascript engine and because I love everything about javascript.
 
-## [Typescript](https://www.typescriptlang.org/)
+## [Typescript](https://www.typescriptlang.org/) :white_check_mark:
 
 Why don't have types on javascript? To avoid complications on runtime use types and on compilation time check your code for errors.
 
