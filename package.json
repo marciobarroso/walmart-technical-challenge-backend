@@ -1,0 +1,19 @@
+{
+  "name": "walmart-technical-challenge-backend",
+  "version": "1.0.0",
+  "description": "Walmart Technical Challenge for Fullstack Developer",
+  "main": "scr/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciobarroso/walmart-technical-challenge-backend.git"
+  },
+  "author": "Marcio Alves Barroso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marciobarroso/walmart-technical-challenge-backend/issues"
+  },
+  "homepage": "https://github.com/marciobarroso/walmart-technical-challenge-backend#readme"
+}
