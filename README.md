@@ -2,7 +2,7 @@
 
 # Tech Stack
 
-## [NodeJS](https://nodejs.org/) >= 14.15.3
+## [NodeJS](https://nodejs.org/) >= 14.15.3 :white_check_mark:
 
 I choose nodejs because of the popularity of this javascript engine and because I love everything about javascript.
 
