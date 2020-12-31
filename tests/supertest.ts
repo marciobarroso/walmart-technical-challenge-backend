@@ -8,8 +8,8 @@ import CreateApplication from '../src/common/CreateApplication'
 import { products } from './data/products'
 import Product from '../src/model/Product';
 
-let application: Application
-let server: Server
+export let application: Application
+export let server: Server
 export let agent: SuperAgentTest
 
 // populate in memory database for tests
@@ -40,7 +40,8 @@ beforeAll(async done => {
   // avoid creation of unnecessary resources
   if( server !== undefined ) done()
 
-  CreateApplication().then(application => {
+  CreateApplication().then(app => {
+    application = app
     server = application.listen(() => {
       agent = request.agent(server)
       done()

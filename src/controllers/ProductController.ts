@@ -10,6 +10,6 @@ export const index : RequestHandler = async (req: Request, res: Response) => {
     return res.json(products)
   } catch (error) {
     Logger.error(error)
-    res.json(error)
+    res.status(500).json(error)
   }
 }
