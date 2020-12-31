@@ -18,9 +18,10 @@ Fast, unopinionated, minimalist web framework for Node.js
 
 ESLint statically analyzes your code to quickly find problems. ESLint is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 
-## [Jest](https://jestjs.io/)
+## [Jest](https://jestjs.io/) :white_check_mark:
 
 Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+For this API we need unit and integration tests with coverage
 
 ## [Mongoose](https://mongoosejs.com/)
 
