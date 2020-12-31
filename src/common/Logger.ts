@@ -1,4 +1,3 @@
-import fs from 'fs'
 import morgan from 'morgan'
 import { createLogger, format, transports } from 'winston'
 import DailyRotateFile from 'winston-daily-rotate-file'
@@ -8,10 +7,6 @@ import Config from './Config'
 const level = Config.get('log.level')
 const directory = Config.get('log.path')
 const name = Config.get('log.name')
-
-if (!fs.existsSync(directory)) {
-  fs.mkdirSync(directory)
-}
 
 const Logger = createLogger({
   level: level,
