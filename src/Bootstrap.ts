@@ -18,12 +18,13 @@ export default class Bootstrap {
   private configure() {
     Logger.info('Configure Express Application')
     
-    this.application.use('/api/v1', router)
     this.application.use(cors())
     this.application.use(express.json())
     this.application.use(compression())
     this.application.use(LoggerMiddleware)
     this.application.disable('etag')
+
+    this.application.use('/api/v1', router)
     
     this.application.listen(3000, () => {
       Logger.info('Express Application Ready on port 3000')

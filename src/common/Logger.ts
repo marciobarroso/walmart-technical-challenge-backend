@@ -3,9 +3,11 @@ import morgan from 'morgan'
 import { createLogger, format, transports } from 'winston'
 import DailyRotateFile from 'winston-daily-rotate-file'
 
-const level = 'info'
-const directory = './logs'
-const name = 'application'
+import Config from './Config'
+
+const level = Config.get('log.level')
+const directory = Config.get('log.path')
+const name = Config.get('log.name')
 
 if (!fs.existsSync(directory)) {
   fs.mkdirSync(directory)
@@ -37,7 +39,7 @@ const Logger = createLogger({
   ],
 })
 
-export const LoggerMiddleware = morgan('dev', {
+export const LoggerMiddleware = morgan(Config.get('log.style'), {
   stream: { write: message => Logger.info(message) },
 })
 
