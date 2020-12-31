@@ -23,10 +23,10 @@ ESLint statically analyzes your code to quickly find problems. ESLint is built i
 Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 For this API we need unit and integration tests with coverage
 
-## [Mongoose](https://mongoosejs.com/)
+## [Mongoose](https://mongoosejs.com/) :white_check_mark:
 
 Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 
-## [Docker](https://www.docker.com/)
+## [Docker](https://www.docker.com/) :white_check_mark:
 
 Developing apps today requires so much more than writing code. Multiple languages, frameworks, architectures, and discontinuous interfaces between tools for each lifecycle stage creates enormous complexity. Docker simplifies and accelerates your workflow, while giving developers the freedom to innovate with their choice of tools, application stacks, and deployment environments for each project.
