@@ -3,20 +3,20 @@ import cors from 'cors'
 import compression from 'compression'
 
 import router from './router'
-import Logger, {LoggerMiddleware} from './common/Logger'
-
+import Logger, { LoggerMiddleware } from './common/Logger'
+import Config from './common/Config'
 export default class Bootstrap {
 
   private application: Application
 
   public constructor() {
-    Logger.info('Build Express Application')
+    Logger.info(`Build ${Config.get('app.name')}`)
     this.application = express()
     this.configure()
   }
 
   private configure() {
-    Logger.info('Configure Express Application')
+    Logger.info(`Configure ${Config.get('app.name')}`)
     
     this.application.use(cors())
     this.application.use(express.json())
@@ -24,10 +24,10 @@ export default class Bootstrap {
     this.application.use(LoggerMiddleware)
     this.application.disable('etag')
 
-    this.application.use('/api/v1', router)
+    this.application.use(Config.get('app.path'), router)
     
-    this.application.listen(3000, () => {
-      Logger.info('Express Application Ready on port 3000')
+    this.application.listen(Config.get('app.port'), () => {
+      Logger.info(`${Config.get('app.name')} Ready on port ${Config.get('app.port')}`)
     })
   }
 
