@@ -54,6 +54,41 @@ const Config = convict({
       arg: 'port',
     },
   },
+  db: {
+    ip: {
+      doc: 'The IP address to bind.',
+      format: String,
+      default: '127.0.0.1',
+      env: 'DB_IP_ADDRESS',
+    },
+    port: {
+      doc: 'The port to bind.',
+      format: 'port',
+      default: 27017,
+      env: 'DB_PORT',
+    },
+    username: {
+      doc: 'The database username.',
+      default: 'default_username',
+      format: String,
+      sensitive: true,
+      env: 'DB_USERNAME',
+    },
+    password: {
+      doc: 'The database password.',
+      default: 'default_password',
+      format: String,
+      sensitive: true,
+      env: 'DB_PASSWORD',
+    },
+    name: {
+      doc: 'The database name.',
+      default: 'default_database',
+      format: String,
+      sensitive: true,
+      env: 'DB_NAME',
+    },
+  },
 })
 
 const env = Config.get('env')
