@@ -7,5 +7,12 @@
     "name": "lider-supermercado",
     "level": "debug",
     "style": "dev"
+  },
+  "db": {
+    "ip": "database",
+    "port": "27017",
+    "name": "lider",
+    "username": "user",
+    "password": "pass123"
   }
 }

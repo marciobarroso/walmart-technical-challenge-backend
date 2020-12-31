@@ -5,13 +5,12 @@ import compression from 'compression'
 import router from '../router'
 import Logger, { LoggerMiddleware } from './Logger'
 import Config from './Config'
-import { DatabaseConnection } from './DatabaseConnection'
+import DatabaseConnection from './DatabaseConnection'
 
 export default async function CreateApplication(): Promise<Application> {
   Logger.info(`Configure ${Config.get('app.name')}`)
   const application = express()
 
-  Logger.info(`Configure database connection`)
   DatabaseConnection().then(() => {
     Logger.info('Database Connection Successful Created')
     application.emit('ready')
