@@ -12,14 +12,3 @@ it('should return 200 and a full list of products', async done => {
     })
 })
 
-it('should throws error when database is not available', async done => {
-  agent
-    .get('/api/v1/products')
-    .expect(200)
-    .expect('Content-Type', /json/)
-    .end((err, res) => {
-      if (err) return done(err)
-      expect(res.body.length).toBe(3000)
-      done()
-    })
-})

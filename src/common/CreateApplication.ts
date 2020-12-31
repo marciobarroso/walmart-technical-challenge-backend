@@ -14,8 +14,8 @@ export default async function CreateApplication(): Promise<Application> {
   DatabaseConnection().then(() => {
     Logger.info('Database Connection Successful Created')
     application.emit('ready')
-  }).catch(error => Logger.error(error))
-    
+  })
+  
   application.use(cors())
   application.use(express.json())
   application.use(compression())
