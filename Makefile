@@ -1,5 +1,5 @@
 NPM_BIN=./node_modules/.bin
-NODE_ENV ?= dev
+NODE_ENV ?= prod
 
 clean:
 	$(NPM_BIN)/rimraf dist logs
@@ -31,4 +31,10 @@ run-%: build
 db-connect:
 	docker exec -it wtc-backend-database bash
 
-.PHONY: clean install build test lint run run-docker run-docker-% run-% db-connect
+db-up: 
+	docker-compose start database && docker-compose start database-seed
+
+db-seed:
+	docker-compose start database-seed
+
+.PHONY: clean install build test lint run run-docker run-docker-% run-% db-connect db-up db-seed

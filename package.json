@@ -9,7 +9,7 @@
     "clean": "rimraf coverage dist logs",
     "build": "npm run lint && tsc -p tsconfig.release.json",
     "start": "node ./dist/src/index.js",
-    "dev": "nodemon -e js,ts,json --exec ts-node ./src/index.ts",
+    "dev": "NODE_ENV=dev nodemon -e js,ts,json --exec ts-node ./src/index.ts",
     "lint": "eslint . --ext .ts",
     "test": "NODE_ENV=test jest --coverage",
     "test:watch": "NODE_ENV=test jest --watch",
