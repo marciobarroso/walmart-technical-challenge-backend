@@ -12,7 +12,8 @@
     "dev": "nodemon -e js,ts,json --exec ts-node ./src/index.ts",
     "lint": "eslint . --ext .ts",
     "test": "NODE_ENV=test jest --coverage",
-    "test:watch": "NODE_ENV=test jest --watch"
+    "test:watch": "NODE_ENV=test jest --watch",
+    "test:security": "retire"
   },
   "devDependencies": {
     "@types/compression": "^1.7.0",
@@ -26,9 +27,11 @@
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "eslint": "^7.16.0",
+    "husky": "^4.3.6",
     "jest": "^26.6.3",
     "mongodb-memory-server": "^6.9.2",
     "nodemon": "^2.0.6",
+    "retire": "^2.2.4",
     "rimraf": "^3.0.2",
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4",
@@ -52,5 +55,21 @@
   "bugs": {
     "url": "https://github.com/marciobarroso/walmart-technical-challenge-backend/issues"
   },
-  "homepage": "https://github.com/marciobarroso/walmart-technical-challenge-backend#readme"
+  "homepage": "https://github.com/marciobarroso/walmart-technical-challenge-backend#readme",
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 95,
+        "branches": 95,
+        "functions": 95,
+        "lines": 95
+      }
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test && npm run test:security"
+    }
+  }
 }
