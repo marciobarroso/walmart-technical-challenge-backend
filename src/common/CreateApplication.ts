@@ -4,25 +4,30 @@ import compression from 'compression'
 
 import router from '../router'
 import Logger, { LoggerMiddleware } from './Logger'
-import Config from './Config'
 import DatabaseConnection from './DatabaseConnection'
+import IApplicationConfiguration, {defaultApplicationConfiguration} from './IApplicationConfiguration'
 
-export default async function CreateApplication(): Promise<Application> {
-  Logger.info(`Configure ${Config.get('app.name')}`)
+export default async function CreateApplication(config: IApplicationConfiguration = defaultApplicationConfiguration): Promise<Application> {
+  Logger.info(`Configure ${config.app.name}`)
   const application = express()
 
-  DatabaseConnection().then(() => {
+  // create database connection
+  DatabaseConnection(config.db.uri).then(() => {
     Logger.info('Database Connection Successful Created')
     application.emit('ready')
   })
   
+  console.log('using')
+
+  // configure middlewares
   application.use(cors())
   application.use(express.json())
   application.use(compression())
   application.use(LoggerMiddleware)
   application.disable('etag')
 
-  application.use(Config.get('app.path'), router)
+  // set routes prefix
+  application.use(config.app.prefix, router)
 
   return application.on('ready', async () => Promise.resolve(application))
 }

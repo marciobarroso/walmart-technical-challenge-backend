@@ -1,5 +1,4 @@
 import { Server } from 'http'
-import mongoose from 'mongoose'
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { Application } from 'express';
 import request, { SuperAgentTest } from 'supertest'
@@ -7,6 +6,7 @@ import request, { SuperAgentTest } from 'supertest'
 import CreateApplication from '../src/common/CreateApplication'
 import { products } from './data/products'
 import Product from '../src/model/Product';
+import IApplicationConfiguration from '../src/common/IApplicationConfiguration'
 
 export let application: Application
 export let server: Server
@@ -21,29 +21,26 @@ async function populate() {
 
 beforeAll(async done => {
   // avoid creation of unnecessary resources
-  if( mongoose.connection.readyState === 1 ) done()
-  
-  const mongod = new MongoMemoryServer();
-  const uri = await mongod.getUri();
+  if( server !== undefined && application !== undefined ) done()
 
-  const mongooseOpts = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  const mongo = new MongoMemoryServer();
+  const uri = await mongo.getUri();
+
+  const configuration: IApplicationConfiguration = {
+    app: {
+      name: 'test app',
+      prefix: '/api/v1'
+    },
+    db: {
+      uri
+    }
   }
 
-  await mongoose.connect(uri, mongooseOpts)
-  await populate()
-  done()
-})
-
-beforeAll(async done => {
-  // avoid creation of unnecessary resources
-  if( server !== undefined ) done()
-
-  CreateApplication().then(app => {
+  CreateApplication(configuration).then(app => {
     application = app
     server = application.listen(() => {
       agent = request.agent(server)
+      populate()
       done()
     })
   })
