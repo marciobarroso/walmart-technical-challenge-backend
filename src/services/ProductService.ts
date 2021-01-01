@@ -1,5 +1,5 @@
 import { IProduct } from '../models/Product';
 
-export const search = (filter?: string) : Promise<IProduct[]> => {
+export const search = () : Promise<IProduct[]> => {
   return Promise.reject()
 }
