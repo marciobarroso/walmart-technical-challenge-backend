@@ -12,7 +12,7 @@ RUN npm install
 
 ADD . /usr/src/app
 
-RUN tsc
+RUN tsc -p tsconfig.release.json
 
 EXPOSE 3000
 

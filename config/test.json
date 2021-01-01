@@ -1,10 +1,10 @@
 {
   "app": {
-    "name": "Lider Supermercado API",
+    "name": "test-app",
     "port": 5000
   },
   "log": {
-    "name": "lider-supermercado",
+    "name": "test-app",
     "level": "error",
     "style": "dev"
   }
