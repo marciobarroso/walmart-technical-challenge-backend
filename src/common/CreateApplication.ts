@@ -17,8 +17,6 @@ export default async function CreateApplication(config: IApplicationConfiguratio
     application.emit('ready')
   })
   
-  console.log('using')
-
   // configure middlewares
   application.use(cors())
   application.use(express.json())
