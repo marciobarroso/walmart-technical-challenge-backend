@@ -1,6 +1,6 @@
-import CreateApplication from './common/CreateApplication'
-import Config from './common/Config'
-import Logger from './common/Logger'
+import CreateApplication from './commons/CreateApplication'
+import Config from './commons/Config'
+import Logger from './commons/Logger'
 
 CreateApplication().then(application => {
   application.listen(Config.get('app.port'), () => {

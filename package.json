@@ -64,7 +64,11 @@
         "functions": 95,
         "lines": 95
       }
-    }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   },
   "husky": {
     "hooks": {

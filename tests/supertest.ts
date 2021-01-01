@@ -3,10 +3,10 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import { Application } from 'express';
 import request, { SuperAgentTest } from 'supertest'
 
-import CreateApplication from '../src/common/CreateApplication'
+import CreateApplication from '../src/commons/CreateApplication'
 import { products } from './data/products'
-import Product from '../src/model/Product';
-import IApplicationConfiguration from '../src/common/IApplicationConfiguration'
+import Product from '../src/models/Product';
+import IApplicationConfiguration from '../src/commons/IApplicationConfiguration'
 
 export let application: Application
 export let server: Server

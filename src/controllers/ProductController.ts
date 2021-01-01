@@ -1,11 +1,13 @@
 import { Request, Response, RequestHandler } from 'express'
 
-import Logger from '../common/Logger'
-import Product from '../model/Product'
+import Logger from '../commons/Logger'
+import Product from '../models/Product'
 
 export const index : RequestHandler = async (req: Request, res: Response) => {
   try {
-    Logger.info('List all products : ', req.query.filter)
+    
+    Logger.info('List all products')
+    Logger.info('Filter : ' + req.query.filter)
     const products = await Product.find()
     return res.json(products)
   } catch (error) {

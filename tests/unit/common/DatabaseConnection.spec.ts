@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import DatabaseConnection from '../../../src/common/DatabaseConnection';
+import DatabaseConnection from '../../../src/commons/DatabaseConnection';
 
 const spyOnConnect = jest.spyOn(mongoose, 'connect')
 
