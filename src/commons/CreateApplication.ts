@@ -2,7 +2,7 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import compression from 'compression'
 
-import router from '../router'
+import router from '../routers'
 import Logger, { LoggerMiddleware } from './Logger'
 import DatabaseConnection from './DatabaseConnection'
 import IApplicationConfiguration, {defaultApplicationConfiguration} from './IApplicationConfiguration'

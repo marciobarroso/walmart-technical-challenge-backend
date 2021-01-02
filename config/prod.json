@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Lider Supermercado API Dev",
+    "name": "Lider Supermercado API",
     "port": 3000
   },
   "log": {
@@ -9,7 +9,7 @@
     "style": "dev"
   },
   "db": {
-    "ip": "127.0.0.1",
+    "ip": "database",
     "port": "27017",
     "name": "lider",
     "username": "user",

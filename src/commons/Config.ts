@@ -4,7 +4,7 @@ const Config = convict({
   env: {
     doc: 'The applicaton environment.',
     format: ['prod', 'dev', 'test'],
-    default: 'dev',
+    default: 'prod',
     env: 'NODE_ENV',
     arg: 'node-env',
   },

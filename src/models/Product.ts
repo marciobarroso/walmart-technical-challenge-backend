@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
-
+import IProduct from './IProduct'
 const ProductSchema: Schema = new Schema(
   {
     _id: { type: Number, required: true },
@@ -10,4 +10,4 @@ const ProductSchema: Schema = new Schema(
   }
 )
 
-export default mongoose.model('Product', ProductSchema)
+export default mongoose.model<IProduct>('Product', ProductSchema)
