@@ -1,4 +1,6 @@
-import { search } from '../../../src/services/ProductService'
+import { search, toDetachedProduct, applyDiscountForPalindrome } from '../../../src/services/ProductService'
+import { products } from '../../data/products'
+
 
 jest.mock('../../../src/models/Product', () => ({
   findById: jest.fn().mockReturnValue(
@@ -87,6 +89,7 @@ jest.mock('../../../src/models/Product', () => ({
 }))
 
 import Product from '../../../src/models/Product'
+import IProduct from '../../../src/models/IProduct';
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -117,4 +120,31 @@ it('should call method find using regex to match filter on brand and description
   const spy = jest.spyOn(Product, 'find')
   search('adda')
   expect(spy).toHaveBeenCalledWith({"$or": [{"brand": {"$options": "i", "$regex": /.*adda.*/}}, {"description": {"$options": "i", "$regex": /.*adda.*/}}]})
+})
+
+it('should return a valid detached product object', () => {
+  const product = products[1] as IProduct
+  const detached = toDetachedProduct(product)
+  expect(detached._id).toBe(product._id)
+  expect(detached.brand).toBe(product.brand)
+  expect(detached.description).toBe(product.description)
+  expect(detached.image).toBe(product.image)
+  expect(detached.price).toBe(product.price)
+  expect(detached.discount).toBe(0)
+})
+
+it('should return a valid list of detached products without discount', async done => {
+  const all = applyDiscountForPalindrome('acrr', products as IProduct[], 50)
+  all.forEach(product => {
+    expect(product.discount).toBe(0)
+    done()
+  })
+})
+
+it('should return a valid list of detached products with discount', async done => {
+  const all = applyDiscountForPalindrome('hññh', products as IProduct[], 50)
+  all.forEach(product => {
+    expect(product.discount).toBe(50)
+    done()
+  })
 })
