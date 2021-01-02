@@ -115,6 +115,6 @@ it('should call method findById when a valid id is provided on filter', () => {
 
 it('should call method find using regex to match filter on brand and description field', () => {
   const spy = jest.spyOn(Product, 'find')
-  search('sad')
-  expect(spy).toHaveBeenCalledWith({"$or": [{"brand": {"$options": "i", "$regex": /.*sad.*/}}, {"description": {"$options": "i", "$regex": /.*sad.*/}}]})
+  search('adda')
+  expect(spy).toHaveBeenCalledWith({"$or": [{"brand": {"$options": "i", "$regex": /.*adda.*/}}, {"description": {"$options": "i", "$regex": /.*adda.*/}}]})
 })

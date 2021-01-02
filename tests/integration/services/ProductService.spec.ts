@@ -13,14 +13,14 @@ it('should return 1 specific product when a valid id is provided', async done =>
   search('180').then(results => {
     expect(results.length).toBe(1)
     expect(results[0]._id).toBe(180)
-    expect(results[0].discount).toBeUndefined()
+    expect(results[0].discount).toBe(0)
     done()
   })
 })
 
-it('should return 80 products that match the world SAD in brand and description field', async done => {
-  search('sad').then(results => {
-    expect(results.length).toBe(80)
+it('should return 80 products that match the world adda in brand and description field', async done => {
+  search('adda').then(results => {
+    expect(results.length).toBe(23)
     done()
   })
 })

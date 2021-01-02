@@ -1,13 +1,5 @@
-import mongoose, { Schema, Document } from 'mongoose'
-export interface IProduct extends Document {
-  _id: number
-  brand: string
-  description: string
-  image: string
-  price: number
-  discount: number
-}
-
+import mongoose, { Schema } from 'mongoose'
+import IProduct from './IProduct'
 const ProductSchema: Schema = new Schema(
   {
     _id: { type: Number, required: true },

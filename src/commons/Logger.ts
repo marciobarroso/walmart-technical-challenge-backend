@@ -35,7 +35,7 @@ const Logger = createLogger({
 })
 
 export const LoggerMiddleware = morgan(Config.get('log.style'), {
-  stream: { write: message => Logger.info(message) },
+  stream: { write: message => Logger.debug(message) },
 })
 
 export default Logger
