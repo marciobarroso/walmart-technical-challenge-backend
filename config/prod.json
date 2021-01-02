@@ -1,18 +1,5 @@
 {
   "app": {
-    "name": "Lider Supermercado API",
-    "port": 3000
-  },
-  "log": {
-    "name": "lider-supermercado",
-    "level": "debug",
-    "style": "dev"
-  },
-  "db": {
-    "ip": "database",
-    "port": "27017",
-    "name": "lider",
-    "username": "user",
-    "password": "pass123"
+    "name": "Lider Supermercado API Dev"
   }
 }
