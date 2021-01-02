@@ -5,6 +5,7 @@ export interface IProduct extends Document {
   description: string
   image: string
   price: number
+  discount: number
 }
 
 const ProductSchema: Schema = new Schema(
