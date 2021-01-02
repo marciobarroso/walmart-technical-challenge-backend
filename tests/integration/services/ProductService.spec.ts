@@ -10,12 +10,9 @@ it('should return all 3000 products when the filter is empty', async done => {
 })
 
 it('should return 1 specific product when a valid id is provided', async done => {
-  search('5').then(results => {
+  search('180').then(results => {
     expect(results.length).toBe(1)
-    expect(results[0]._id).toBe(5)
-    expect(results[0].brand).toBe('peuoooypt')
-    expect(results[0].description).toBe('trcwl iagxxh')
-    expect(results[0].price).toBe(814893)
+    expect(results[0]._id).toBe(180)
     expect(results[0].discount).toBeUndefined()
     done()
   })
