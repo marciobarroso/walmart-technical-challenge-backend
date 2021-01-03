@@ -1,5 +1,14 @@
 {
   "app": {
-    "name": "Lider Supermercado API Dev"
+    "name": "Lider Supermercado API",
+    "port": 3000
+  },
+  "log": {
+    "name": "lider-supermercado",
+    "level": "debug",
+    "style": "dev"
+  },
+  "db": {
+    "uri": "mongodb+srv://lider-user:password123456@cluster0.pwjgx.mongodb.net/lider-database?retryWrites=true&w=majority"
   }
 }

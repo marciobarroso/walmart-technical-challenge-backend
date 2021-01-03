@@ -16,6 +16,6 @@ export const defaultApplicationConfiguration: IApplicationConfiguration = {
     prefix: Config.get('app.path')
   },
   db: {
-    uri: `mongodb://${Config.get('db.username')}:${Config.get('db.password')}@${Config.get('db.ip')}:${Config.get('db.port')}/${Config.get('db.name')}?authSource=admin`
+    uri: Config.get('db.uri')
   }
 }

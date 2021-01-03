@@ -9,10 +9,6 @@
     "style": "dev"
   },
   "db": {
-    "ip": "127.0.0.1",
-    "port": "27017",
-    "name": "lider",
-    "username": "user",
-    "password": "pass123"
+    "uri": "mongodb://user:pass123@$127.0.0.1:27017/lider?authSource=admin"
   }
 }
