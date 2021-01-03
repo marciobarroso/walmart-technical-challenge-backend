@@ -2,9 +2,9 @@ require('../../supertest')
 
 import { search } from '../../../src/services/ProductService'
 
-it('should return all 3000 products when the filter is empty', async done => {
+it('should return all 25 products when the filter is empty', async done => {
   search('').then(results => {
-    expect(results.length).toBe(3000)
+    expect(results.length).toBe(25)
     done()
   })
 })

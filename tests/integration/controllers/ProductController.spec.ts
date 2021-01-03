@@ -7,7 +7,7 @@ it('should return 200 and a full list of products', async done => {
     .expect('Content-Type', /json/)
     .end((err, res) => {
       if (err) return done(err)
-      expect(res.body.length).toBe(3000)
+      expect(res.body.length).toBe(25)
       done()
     })
 })

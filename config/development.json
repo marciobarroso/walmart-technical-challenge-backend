@@ -9,6 +9,6 @@
     "style": "dev"
   },
   "db": {
-    "uri": "mongodb://user:pass123@$127.0.0.1:27017/lider?authSource=admin"
+    "uri": "mongodb://user:pass123@127.0.0.1:27017/lider?authSource=admin"
   }
 }

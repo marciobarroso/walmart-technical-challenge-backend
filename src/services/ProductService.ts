@@ -5,16 +5,21 @@ import IDetachedProduct from '../models/IDetachedProduct'
 import { check } from './PalindromeService'
 import { isEmpty, isNumeric } from '../../src/util/Validation'
 
-export const search = async (filter: string) : Promise<IDetachedProduct[]> => {
+export const search = async (filter: string, page = 1) : Promise<IDetachedProduct[]> => {
   try {
+    const limit = 25
+    const skips = limit * (page - 1)
+
     Logger.debug('Calling Product Search Service')
     Logger.debug('Filter : ' + filter)
-
+    Logger.debug('Page : ' + page)
+    Logger.debug('Skips : ' + skips)
+    
     let products: IProduct[]
 
     if (filter !== undefined && isNumeric(filter)) {
       Logger.debug('Filter is a valid number. Trying to find product by id')
-      products = [await Product.findById(Number(filter))]
+      products = [await Product.findById(Number(filter)).skip(skips).limit(limit)]
     } else if (filter !== undefined && !isEmpty(filter) && filter.length > 3) {
       Logger.debug('Filter is string greater than 3')
       const like = new RegExp(`.*${filter}.*`)
@@ -23,10 +28,10 @@ export const search = async (filter: string) : Promise<IDetachedProduct[]> => {
           { brand: { $regex: like, $options: 'i' } },
           { description: { $regex: like, $options: 'i' } }
         ]
-      })
+      }).skip(skips).limit(limit)
     } else {
       Logger.debug('Listing all products')
-      products = await Product.find()
+      products = await Product.find().skip(skips).limit(limit)
     }
 
     // apply filter for discount

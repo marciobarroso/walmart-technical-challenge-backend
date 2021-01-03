@@ -101,15 +101,6 @@ it('should call Product.find method', () => {
   expect(spy).toHaveBeenCalledTimes(1)  
 })
 
-it('should return 10 products when no filter is provided', async done => {
-  const spy = jest.spyOn(Product, 'find')
-  search('').then(result => {
-    expect(result.length).toBe(10)
-    expect(spy).toHaveBeenCalled()
-    done()
-  })
-})
-
 it('should call method findById when a valid id is provided on filter', () => {
   const spy = jest.spyOn(Product, 'findById')
   search('5')
