@@ -1,5 +1,5 @@
 NPM_BIN=./node_modules/.bin
-NODE_ENV ?= prod
+NODE_ENV ?= production
 
 clean:
 	$(NPM_BIN)/rimraf dist logs
