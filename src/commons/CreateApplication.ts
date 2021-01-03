@@ -18,6 +18,13 @@ export default async function CreateApplication(config: IApplicationConfiguratio
   })
   
   // configure middlewares
+  application.use(function (req, res, next) {
+    Logger.debug(`Configure cors`)
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
+
   application.use(cors())
   application.use(express.json())
   application.use(compression())
