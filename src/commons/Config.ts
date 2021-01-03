@@ -3,8 +3,8 @@ import convict from 'convict'
 const Config = convict({
   env: {
     doc: 'The applicaton environment.',
-    format: ['prod', 'dev', 'test'],
-    default: 'prod',
+    format: ['production', 'development', 'test'],
+    default: 'production',
     env: 'NODE_ENV',
     arg: 'node-env',
   },

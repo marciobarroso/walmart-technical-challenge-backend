@@ -2,4 +2,4 @@ dist
 node_modules
 logs
 coverage
-config/prod.json
+config/production.json
