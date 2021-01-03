@@ -28,6 +28,12 @@ run-docker-%: build
 run-%: build
 	NODE_ENV=${*} $(NPM_BIN)/nodemon -e js,ts,json --exec $(NPM_BIN)/ts-node ./src/index.ts
 
+docker-build:
+	NODE_ENV=production docker-compose build
+
+docker-run:
+	NODE_ENV=production docker-compose up --build --force-recreate -d
+
 db-connect:
 	docker exec -it wtc-backend-database bash
 
@@ -37,4 +43,4 @@ db-up:
 db-seed:
 	docker-compose start database-seed
 
-.PHONY: clean install build test lint run run-docker run-docker-% run-% db-connect db-up db-seed
+.PHONY: docker-build docker-run clean install build test lint run run-docker run-docker-% run-% db-connect db-up db-seed
