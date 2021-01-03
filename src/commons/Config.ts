@@ -58,7 +58,7 @@ const Config = convict({
     uri: {
       doc: 'The connection URI',
       format: String,
-      default: '',
+      default: 'mongodb://user:pass123@database:27017/lider?authSource=admin',
       env: 'DB_URI',
     },
   },
